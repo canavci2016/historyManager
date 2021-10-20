@@ -1,10 +1,3 @@
-const FileHistory = require('./history/FileHistory');
-const HistoryManager = require('./history/HistoryManager');
-
-module.exports = (fileName) => {
-
-    const historyManagerInstance = new HistoryManager();
-    historyManagerInstance.setStrategy(new FileHistory(fileName));
-
-    return historyManagerInstance;
-};
+const MemoryFactory = require("../history/MemoryFactory");
+const memoryFactoryInstance = new MemoryFactory();
+const memento = memoryFactoryInstance.getHistoryModel(file);
